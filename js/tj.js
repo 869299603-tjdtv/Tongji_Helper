@@ -100,7 +100,7 @@ chrome.storage.local.get(['username','password','enable','interval','status','ma
 	if (window.location.host=="4m3.tongji.edu.cn") {
 		if (window.location.href.indexOf("StdElectCourse!batchOperator.action")>0) {
 			if ($('html').html().indexOf('成功')>0) {
-				$('table').after('<iframe src="https://www.zhouii.com/tj_helper/elected.html" style="border: none;width: 100%;height: 800px;"></iframe>');
+				$('table').after('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle"     style="display:block"     data-ad-client="ca-pub-4798098153916731"     data-ad-slot="6753584008"     data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><iframe src="https://www.zhouii.com/tj_helper/elected.html" style="border: none;width: 100%;height: 800px;"></iframe>');
 				chrome.runtime.sendMessage({'target':'bg','action':'electSucceed','c':$('table').html()});
 			}
 			else setTimeout(refre,((items['interval']==null || items['interval']=='')?1500:items['interval']));
@@ -124,6 +124,13 @@ chrome.storage.local.get(['username','password','enable','interval','status','ma
 				$('input[value=切换]').after('<a href=\"javascript:void(0);\" style=\"margin-left:10px\" onclick=\"javascript:$(\\\'#semesterCalendar_target\\\').val($(\\\'#semesterCalendar_target\\\').val()-1);$(\\\'input[value=切换]\\\').click();\">上一学期</a>');\
 			}\
 		}");
+	}
+
+	if (window.location.host=='cwc.tongji.edu.cn') {
+		if (window.location.pathname=='/payment/pay/payment.jsp') {
+			$('form').css('height','100%');
+			$('#ext-gen13').css('overflow-y','auto');
+		}
 	}
 
 	if (window.location.host=='xui.ptlogin2.qq.com' && window.location.href.indexOf('mail.qq.com')) {//qq邮箱自动登录
